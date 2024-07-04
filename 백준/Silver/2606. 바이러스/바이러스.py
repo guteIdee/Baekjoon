@@ -11,13 +11,17 @@ for _ in range(m):
     graph[v1].append(v2)
     graph[v2].append(v1)
 
-visited_dfs = [0] * (n + 1)
-answer = 0
-def dfs(v):
-    visited_dfs[v] = 1
-    for w in sorted(graph[v]):
-        if visited_dfs[w] == 0:
-            dfs(w)
+visited_bfs = [0] * (n + 1)
 
-dfs(1)
-print(visited_dfs.count(1) - 1)
+def bfs(s):
+    visited_bfs[s] = 1
+    queue = deque([s])
+    while queue:
+        v = queue.popleft()
+        for w in sorted(graph[v]):
+            if visited_bfs[w] == 0:
+                visited_bfs[w] = 1
+                queue.append(w)
+
+bfs(1)
+print(visited_bfs.count(1) - 1)

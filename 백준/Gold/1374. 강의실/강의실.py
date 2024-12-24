@@ -1,7 +1,7 @@
 import sys
 import heapq
 
-n = int(sys.stdin.readline().rstrip())  # 강의 갯수
+n = int(sys.stdin.readline())
 
 study = []
 for _ in range(n):
@@ -11,7 +11,7 @@ for _ in range(n):
 study.sort()
 
 rooms = []
-heapq.heappush(rooms, study[0][1])  
+heapq.heappush(rooms, study[0][1])
 
 for i in range(1, n):
     if study[i][0] < rooms[0]:
@@ -21,6 +21,3 @@ for i in range(1, n):
         heapq.heappush(rooms, study[i][1])
 
 print(len(rooms))
-
-
-

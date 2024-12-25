@@ -1,12 +1,14 @@
 import sys
 
 n = int(sys.stdin.readline())
-data = []
+l = []
 
-for i in range(0, n):
-    i, j = map(int, sys.stdin.readline().split())
-    data.append((i, j))
-data.sort(key=lambda x:(x[1], x[0]))
+for _ in range(n):
+    start, end = map(int, sys.stdin.readline().split())
+    l.append([start, end])
 
-for d in data:
-    print(*d)
+l.sort(key=lambda x:(x[1], x[0]))
+
+for i in range(n):
+    print(l[i][0], l[i][1])
+
